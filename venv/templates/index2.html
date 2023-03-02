@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <title>Agrisaathi</title>
+  </head>
+  <body>
+    <div class="intro">
+      <div class="header">
+        <h1 class="h1">AGRISAATHI</h1>
+        <p class="p1">Helping farmers make the right solutions</p>
+      </div>
+      <button class="option" onclick="one()">Crop recommender</button>
+      <button class="option2" onclick="two()">Crop disease predictor</button>
+      <div class="fdiv" id="fdiv">
+        <form action="/data" method="post" class="form1">
+          N:<br />
+          <input
+            class="data"
+            type="text"
+            size="50px"
+            name="N"
+            placeholder="N"
+          /><br /><br />
+          P:<br />
+          <input
+            class="data"
+            type="text"
+            size="50px"
+            name="P"
+            placeholder="P"
+          /><br /><br />
+          K:<br />
+          <input
+            class="data"
+            type="text"
+            size="50px"
+            name="K"
+            placeholder="K"
+          /><br /><br />
+          Temperature:<br />
+          <input
+            class="data"
+            type="text"
+            size="50px"
+            name="Temperature"
+            placeholder="Temperature"
+          /><br /><br />
+          Humidity:<br />
+          <input
+            class="data"
+            type="text"
+            size="50px"
+            name="Humidity"
+            placeholder="Humidity"
+          /><br /><br />
+          PH:<br />
+          <input
+            class="data"
+            type="text"
+            size="50px"
+            name="PH"
+            placeholder="PH"
+          /><br /><br />
+          Rainfall:<br />
+          <input
+            class="data"
+            type="text"
+            size="50px"
+            name="Rainfall"
+            placeholder="Rainfall"
+          /><br /><br />
+          <input class="submit" type="submit" size="50px" /><br /><br />
+        </form>
+        <br />
+        <span class="predict">{{ prediction_text }}</span>
+        <style>
+          .predict {
+            position: absolute;
+            left: -700px;
+            top: 250px;
+            font-weight: bolder;
+            text-transform: uppercase;
+            color: whitesmoke;
+            font-size: 40px;
+            padding: 50px 20px;
+            font-style: italic;
+            width: 200px;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+          }
+        </style>
+      </div>
+    </div>
+    <div class="fdiv2" id="fdiv2">
+      <form action="/disease" method="post" class="form1">
+        Crop:<br />
+        <input
+          class="data"
+          type="text"
+          size="70px"
+          placeholder="Crop"
+        /><br /><br />
+        <input type="file" class="file" />
+        <input class="submit" type="submit" size="50px" /><br /><br />
+      </form>
+    </div>
+    <!-- <div class="predictor">{{ prediction_text }}</div> -->
+    <!-- <footer>
+      <div class="dev">
+        <h4></h4>
+      </div>
+    </footer> -->
+  </body>
+  <script>
+    function one() {
+      var x = document.getElementById("fdiv");
+      var y = document.getElementById("fdiv2");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+        y.style.display = "none";
+      } else {
+        x.style.display = "none";
+      }
+    }
+    function two() {
+      var x = document.getElementById("fdiv2");
+      var y = document.getElementById("fdiv");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+        y.style.display = "none";
+      } else {
+        x.style.display = "none";
+      }
+    }
+  </script>
+</html>
